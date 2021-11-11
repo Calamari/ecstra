@@ -86,6 +86,18 @@ export class Query<E extends Entity = Entity> {
   }
 
   /**
+   * Returns one matching entity or null if there is no match
+   */
+  public one(): Option<Entity> {
+    let result: Option<Entity>;
+    this.executeUntil((entity) => {
+      result = entity;
+      return true;
+    });
+    return result;
+  }
+
+  /**
    * Returns true if this query definition matches the given archetype
    *
    * @param archetype - Archetype to test
