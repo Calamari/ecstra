@@ -6,7 +6,7 @@ enum QueryComponentOperatorKind {
   Not = 'not'
 }
 
-export function Not(Class: ComponentClass) {
+export function Not(Class: ComponentClass): ComponentOperator {
   return { Class, kind: QueryComponentOperatorKind.Not, isOperator: true };
 }
 
